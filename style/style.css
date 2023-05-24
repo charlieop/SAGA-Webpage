@@ -1,9 +1,10 @@
 :root {
   --main-color: darkorange;
   --secondary-color: #fafafa;
+  --accent-color: orange;
   --header-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
   --main-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
-  --header-height: 3.5rem;
+  --header-height: clamp(3.5rem, 9vh, 5rem);
 }
 
 *::before,
@@ -11,6 +12,10 @@
 * {
   box-sizing: border-box;
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 body {
@@ -30,9 +35,10 @@ header {
   background-color: var(--main-color);
   font-family: var(--header-font);
   font-size: 1.3rem;
+  transition: all 2s ease-in-out;
 
   /* To Be Removed */
-  outline: 3px solid blue;
+  /* outline: 3px solid blue; */
 }
 
 main {
@@ -40,7 +46,7 @@ main {
   font-family: var(--main-font);
 
   /* To Be Removed */
-  outline: 3px solid green;
+  /* outline: 3px solid green; */
   min-height: 200vh;
 }
 
@@ -51,13 +57,14 @@ footer {
   font-family: var(--header-font);
 
   /* To Be Removed */
-  outline: 3px solid red;
+  /* outline: 3px solid red; */
 }
 
 .flex-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .header-wrapper {
@@ -65,13 +72,12 @@ footer {
 }
 
 .header-item {
-  text-decoration: none;
   color: var(--secondary-color);
   height: var(--header-height);
   line-height: var(--header-height);
 
   /* To Be Removed */
-  outline: 2px solid black;
+  /* outline: 2px solid black; */
 }
 
 .header-logo {
@@ -81,15 +87,38 @@ footer {
 .header-icon {
   width: var(--header-height);
   aspect-ratio: 1/1;
-  background-color: orange;
+  background-color: var(--accent-color);
 }
 
 .nav-icon {
+  display: none;
+  margin-right: 0.5rem;
+}
+
+.nav-icon > svg {
+  width: 80%;
+  fill: var(--secondary-color);
+}
+
+.nav-icon > svg:hover {
+  background-color: var(--accent-color);
+  transition: 0.2s ease;
+}
+
+.nav-icon > svg:active {
+  background-color: red;
+}
+
+#nav-toggle {
   display: none;
 }
 
 .nav-wrapper {
   flex-grow: 1;
+}
+
+.nav-item:hover {
+  background-color: var(--accent-color);
 }
 
 .primary-nav {
@@ -98,7 +127,47 @@ footer {
 
 .switch-lang {
   margin-left: auto;
+  margin-right: 1em;
   gap: 0.3rem;
   align-items: baseline;
   font-size: 0.7em;
+}
+
+@media screen and (width <= 650px) {
+  .nav-wrapper {
+    display: none;
+  }
+  .nav-icon {
+    display: block;
+  }
+  #nav-toggle:not(:checked) ~ .nav-wrapper {
+    display: none;
+  }
+  #nav-toggle:checked ~ .nav-wrapper {
+    display: block;
+    flex-basis: 100%;
+    background-color: var(--accent-color);
+  }
+
+  #nav-toggle:checked ~ .nav-icon > svg {
+    background-color: var(--accent-color);
+  }
+  .primary-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .header-wrapper {
+    gap: 0;
+  }
+.nav-item{
+      width: 100%;
+}
+.nav-item > a {
+  padding-left: 1em;
+}
+  .nav-item:hover {
+    background-color: var(--main-color);
+  }
 }

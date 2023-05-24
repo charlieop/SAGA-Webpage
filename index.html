@@ -29,18 +29,41 @@
           <svg class="header-icon header-item"></svg>
           <p class="header-item header-name">SAGA</p>
         </a>
-        <div class="nav-icon"></div>
+        <input type="checkbox" id="nav-toggle" class="header-item" />
+        <label for="nav-toggle" class="nav-icon header-item">
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            focusable="false"
+            class="header-item nav-icon"
+          >
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+          </svg>
+        </label>
         <div class="nav-wrapper">
           <nav class="primary-nav flex-row">
-            <a href="../" class="nav-item header-item">组织介绍</a>
-            <a href="../" class="nav-item header-item">招募相关</a>
-            <a href="../" class="nav-item header-item">文件下载</a>
-            <a href="../" class="nav-item header-item">联系我们</a>
+            <span class="nav-item header-item"
+              ><a href="../" class="header-item">组织介绍</a></span
+            >
+            <span class="nav-item header-item"
+              ><a href="../" class="header-item">招募相关</a></span
+            >
+            <span class="nav-item header-item"
+              ><a href="../" class="header-item">文件下载</a></span
+            >
+            <span class="nav-item header-item"
+              ><a href="../" class="header-item">联系我们</a></span
+            >
             <div class="switch-lang flex-row">
-              <a href="../" class="nav-item header-item" lang="zh-Hant"
-                >繁體中文</a
+              <span class="nav-item header-item"
+                ><a href="../" class="header-item" lang="zh-Hant"
+                  >繁體中文</a
+                ></span
               >
-              <a href="../" class="nav-item header-item" lang="en">ENG</a>
+              <span class="nav-item header-item"
+                ><a href="../" class="header-item" lang="en">ENG</a></span
+              >
             </div>
           </nav>
         </div>
