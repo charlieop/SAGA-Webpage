@@ -1,0 +1,104 @@
+:root {
+  --main-color: darkorange;
+  --secondary-color: #fafafa;
+  --header-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
+  --main-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
+  --header-height: 3.5rem;
+}
+
+*::before,
+*::after,
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 7vw 1fr 5vw;
+  grid-template-areas:
+    "header header  header"
+    ".      main    ."
+    "footer footer  footer";
+
+  background-color: var(--secondary-color);
+}
+
+header {
+  grid-area: header;
+  min-height: var(--header-height);
+  background-color: var(--main-color);
+  font-family: var(--header-font);
+  font-size: 1.3rem;
+
+  /* To Be Removed */
+  outline: 3px solid blue;
+}
+
+main {
+  grid-area: main;
+  font-family: var(--main-font);
+
+  /* To Be Removed */
+  outline: 3px solid green;
+  min-height: 200vh;
+}
+
+footer {
+  grid-area: footer;
+  min-height: 25svh;
+  background-color: var(--main-color);
+  font-family: var(--header-font);
+
+  /* To Be Removed */
+  outline: 3px solid red;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-wrapper {
+  gap: 1rem;
+}
+
+.header-item {
+  text-decoration: none;
+  color: var(--secondary-color);
+  height: var(--header-height);
+  line-height: var(--header-height);
+
+  /* To Be Removed */
+  outline: 2px solid black;
+}
+
+.header-logo {
+  font-size: 1.4em;
+}
+
+.header-icon {
+  width: var(--header-height);
+  aspect-ratio: 1/1;
+  background-color: orange;
+}
+
+.nav-icon {
+  display: none;
+}
+
+.nav-wrapper {
+  flex-grow: 1;
+}
+
+.primary-nav {
+  gap: 0.7rem;
+}
+
+.switch-lang {
+  margin-left: auto;
+  gap: 0.3rem;
+  align-items: baseline;
+  font-size: 0.7em;
+}
