@@ -84,7 +84,7 @@ footer {
   height: var(--header-height);
 
   /* To Be Removed */
-  outline: 2px solid black;
+  /* outline: 2px solid black; */
 }
 
 .logo-wrapper {
@@ -144,7 +144,7 @@ nav {
   color: yellow;
 }
 
-@media screen and (width <= max(650px, 800px)) {
+@media screen and (width <= max(650px)) {
   .primary-nav {
     position: fixed;
     inset: 0 0 0 30%;
