@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
+
+    <meta name="theme-color" content="#ff8000" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe:wght@400&display=swap"
@@ -19,54 +20,70 @@
     />
 
     <link rel="stylesheet" href="./style/style.css" />
-    <script src="./scripts/scripts.js"></script>
+    <!-- <script src="./scripts/scripts.js"></script> -->
     <title>SAGA</title>
   </head>
   <body>
     <header>
-      <div class="header-wrapper flex-row">
-        <a href="#" class="header-logo flex-row header-item">
-          <svg class="header-icon header-item"></svg>
-          <p class="header-item header-name">SAGA</p>
+      <div class="header-wrapper flex">
+        <a href="./" class="logo-wrapper">
+          <img
+            class="logo-icon header-item"
+            src="./src/SAGA-logo.svg"
+            alt="SAGA Logo"
+          />
         </a>
-        <input type="checkbox" id="nav-toggle" class="header-item" />
-        <label for="nav-toggle" class="nav-icon header-item">
+        <input type="checkbox" id="nav-toggle" />
+        <label for="nav-toggle" class="nav-icon hamburger">
           <svg
             height="24"
             viewBox="0 0 24 24"
             width="24"
             focusable="false"
-            class="header-item nav-icon"
+            class="header-item nav-icon hamburger"
           >
             <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
           </svg>
         </label>
-        <div class="nav-wrapper">
-          <nav class="primary-nav flex-row">
-            <span class="nav-item header-item"
-              ><a href="#" class="header-item">组织介绍</a></span
-            >
-            <span class="nav-item header-item"
-              ><a href="#" class="header-item">招募相关</a></span
-            >
-            <span class="nav-item header-item"
-              ><a href="#" class="header-item">文件下载</a></span
-            >
-            <span class="nav-item header-item"
-              ><a href="#" class="header-item">联系我们</a></span
-            >
-            <div class="switch-lang flex-row">
-              <span class="nav-item header-item"
-                ><a href="#" class="header-item" lang="zh-Hant"
-                  >繁體中文</a
-                ></span
-              >
-              <span class="nav-item header-item"
-                ><a href="#" class="header-item" lang="en">ENG</a></span
-              >
-            </div>
-          </nav>
-        </div>
+        <label for="nav-toggle" class="nav-icon cross">
+          <svg
+            height="24"
+            width="24"            
+            viewBox="25 25 210 210"
+            class="header-item nav-icon cross"
+          >
+            <path
+              d="M202.82861,197.17188a3.99991,3.99991,0,1,1-5.65722,5.65624L128,133.65723,58.82861,202.82812a3.99991,3.99991,0,0,1-5.65722-5.65624L122.343,128,53.17139,58.82812a3.99991,3.99991,0,0,1,5.65722-5.65624L128,122.34277l69.17139-69.17089a3.99991,3.99991,0,0,1,5.65722,5.65624L133.657,128Z"
+            />
+          </svg>
+        </label>
+        <nav>
+          <ul class="primary-nav flex">
+            <li class="nav-item active">
+              <a href="#">
+                <span class="header-item">组织介绍</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">
+                <span class="header-item">招募相关</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">
+                <span class="header-item">文件下载</span>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#">
+                <span class="header-item">联系我们</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
     <main>

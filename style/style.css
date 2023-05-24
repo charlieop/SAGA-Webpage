@@ -1,10 +1,12 @@
 :root {
-  --main-color: darkorange;
+  --header-color: #8b7765;
+  --navbar-color: #6b5745bb;
+  --main-color: #ff8000;
   --secondary-color: #fafafa;
   --accent-color: orange;
   --header-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
   --main-font: "Pangolin", "ZCOOL KuaiLe", sans-serif;
-  --header-height: clamp(3.5rem, 9vh, 5rem);
+  --header-height: clamp(3.5rem, 10vh, 4.5rem);
 }
 
 *::before,
@@ -12,10 +14,15 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 body {
@@ -27,15 +34,16 @@ body {
     "footer footer  footer";
 
   background-color: var(--secondary-color);
+
+  overflow-x: hidden;
 }
 
 header {
   grid-area: header;
-  min-height: var(--header-height);
-  background-color: var(--main-color);
+  height: var(--header-height);
+  background-color: var(--header-color);
   font-family: var(--header-font);
-  font-size: 1.3rem;
-  transition: all 2s ease-in-out;
+  font-size: 1.5rem;
 
   /* To Be Removed */
   /* outline: 3px solid blue; */
@@ -60,43 +68,41 @@ footer {
   /* outline: 3px solid red; */
 }
 
-.flex-row {
+.flex {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: var(--_gap, 2rem);
 }
 
 .header-wrapper {
-  gap: 1rem;
+  --_gap: 0;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-item {
   color: var(--secondary-color);
   height: var(--header-height);
-  line-height: var(--header-height);
 
   /* To Be Removed */
-  /* outline: 2px solid black; */
+  outline: 2px solid black;
 }
 
-.header-logo {
-  font-size: 1.4em;
+.logo-wrapper {
+  margin-left: 0.5rem;
+  height: var(--header-height);
 }
 
-.header-icon {
-  width: var(--header-height);
-  aspect-ratio: 1/1;
-  background-color: var(--accent-color);
+.logo-icon {
+  height: 110%;
 }
 
 .nav-icon {
+  width: 3rem;
   display: none;
   margin-right: 0.5rem;
 }
 
 .nav-icon > svg {
-  width: 80%;
   fill: var(--secondary-color);
 }
 
@@ -113,61 +119,71 @@ footer {
   display: none;
 }
 
-.nav-wrapper {
+nav {
   flex-grow: 1;
+}
+
+.primary-nav {
+  --_gap: 1rem;
+  align-items: stretch;
+  justify-content: right;
+  height: var(--header-height);
+  line-height: var(--header-height);
 }
 
 .nav-item:hover {
   background-color: var(--accent-color);
 }
 
-.primary-nav {
-  gap: 0.7rem;
+.nav-item:last-child {
+  margin-right: 0.5em;
 }
 
-.switch-lang {
-  margin-left: auto;
-  margin-right: 1em;
-  gap: 0.3rem;
-  align-items: baseline;
-  font-size: 0.7em;
+.nav-item span::before {
+  content: "✦";
+  color: yellow;
 }
 
-@media screen and (width <= 650px) {
-  .nav-wrapper {
-    display: none;
+@media screen and (width <= max(650px, 800px)) {
+  .primary-nav {
+    position: fixed;
+    inset: 0 0 0 30%;
+    height: 100%;
+    flex-direction: column;
+    --_gap: 1rem;
+    padding: min(20vh, 8rem) 2rem;
+    background-color: var(--navbar-color);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
   }
+
+  .nav-item {
+    height: 3ch;
+  }
+
   .nav-icon {
     display: block;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
   }
-  #nav-toggle:not(:checked) ~ .nav-wrapper {
+
+  #nav-toggle:not(:checked) ~ nav .primary-nav {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+  }
+  #nav-toggle:checked ~ nav .primary-nav {
+    transform: translateX(0%);
+    transition: transform 0.3s ease-in;
+  }
+
+  #nav-toggle:checked ~ .hamburger {
     display: none;
   }
-  #nav-toggle:checked ~ .nav-wrapper {
-    display: block;
-    flex-basis: 100%;
-    background-color: var(--accent-color);
-  }
 
-  #nav-toggle:checked ~ .nav-icon > svg {
-    background-color: var(--accent-color);
-  }
-  .primary-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .header-wrapper {
-    gap: 0;
-  }
-.nav-item{
-      width: 100%;
-}
-.nav-item > a {
-  padding-left: 1em;
-}
-  .nav-item:hover {
-    background-color: var(--main-color);
+  #nav-toggle:not(:checked) ~ .cross {
+    display: none;
   }
 }
